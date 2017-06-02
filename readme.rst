@@ -1,70 +1,36 @@
 ###################
-What is CodeIgniter
+Фотогалерея 
 ###################
 
-CodeIgniter is an Application Development Framework - a toolkit - for people
-who build web sites using PHP. Its goal is to enable you to develop projects
-much faster than you could if you were writing code from scratch, by providing
-a rich set of libraries for commonly needed tasks, as well as a simple
-interface and logical structure to access these libraries. CodeIgniter lets
-you creatively focus on your project by minimizing the amount of code needed
-for a given task.
+Простая фотогалерея сделанная на фреймворке Codeigniter.
 
 *******************
-Release Information
+Информация
 *******************
 
-This repo contains in-development code for future releases. To download the
-latest stable release please visit the `CodeIgniter Downloads
-<https://codeigniter.com/download>`_ page.
+Скрипт представляет собой автономный веб сайт для размещения в сети Интернет. Сайт состоит из двух точек входа: Frontend доступен для
+просмотра всем посетителям. Backend доступен после процедуры аутентификации с использованием логина и пароля.
 
 **************************
-Changelog and New Features
+Функционал Backend.
 **************************
+Администратор сайта формирует список альбомов. Альбом имеет следующие свойства:
+• Название – текстовое поле
+• Дата создания – текстовое поле с выпадающим календариком
+• Описание альбома – большое текстовое поле
+• Количество загруженных фотографий – должно считаться автоматически
 
-You can find a list of all changes for each release in the `user
-guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst>`_.
+Внутри формы альбома, для загрузки фотографий создана дочерняя форма. В каждый альбом может быть загружено сколько угодно фотографий. Каждая фотография иметь поле с названием фотографии, которое так же заполняется администратором.
+Администратор имееть возможность сортировать / определять порядок вывода как фотографий внутри альбома, так и самих альбомов.
 
 *******************
-Server Requirements
+Функционал Frontend.
 *******************
 
-PHP version 5.6 or newer is recommended.
-
-It should work on 5.3.7 as well, but we strongly advise you NOT to run
-such old versions of PHP, because of potential security and performance
-issues, as well as missing features.
+Посетители сайта видят список альбомов в мозаичном виде по 3 альбома в ряд, 12 альбомов на страницу.Реализованна постраничная навигация при выводе списка альбомов. В списке выводится первая фотография из загруженных в альбом и под ней название альбома. Альбомы отсортированы в том порядке, какой им присвоил администратор в админке, а если  порядок не определен, то по дате создания в обратном порядке (более свежие впереди). При нажатии на основную фотографию или на название альбома, посетитель попадает в полную версию альбома. В полной версии альбома крупно выводится название альбома, мелко дата создания и под ними следует текст из поля Описание альбома.
+Под текстом в мозаичном виде выводятся все фотографии альбома без постраничной навигации. По 4 в ряд.При нажатии на фотографию экран затемняется и фотография разворачивается на весь экран, при этом не выходя за его пределы. Под фотографией выводится ее название, заданное в админке.
 
 ************
-Installation
+Установка
 ************
 
-Please see the `installation section <https://codeigniter.com/user_guide/installation/index.html>`_
-of the CodeIgniter User Guide.
-
-*******
-License
-*******
-
-Please see the `license
-agreement <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst>`_.
-
-*********
-Resources
-*********
-
--  `User Guide <https://codeigniter.com/docs>`_
--  `Language File Translations <https://github.com/bcit-ci/codeigniter3-translations>`_
--  `Community Forums <http://forum.codeigniter.com/>`_
--  `Community Wiki <https://github.com/bcit-ci/CodeIgniter/wiki>`_
--  `Community IRC <https://webchat.freenode.net/?channels=%23codeigniter>`_
-
-Report security issues to our `Security Panel <mailto:security@codeigniter.com>`_
-or via our `page on HackerOne <https://hackerone.com/codeigniter>`_, thank you.
-
-***************
-Acknowledgement
-***************
-
-The CodeIgniter team would like to thank EllisLab, all the
-contributors to the CodeIgniter project and you, the CodeIgniter user.
